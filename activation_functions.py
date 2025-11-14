@@ -13,7 +13,16 @@ x = 1.6
 w = rd.random()
 b = rd.random()
 
+learning_rate = 0.19
 epochs = 100
+
 for i in range(epochs):
-    print(sigmoid(S(x, w, b)))
+    s = S(x, w, b)
+    y = sigmoid(s)
+
+    dEdW = (y - t) * y * (1 - y) * x
+
+    w = w - learning_rate * dEdW
+
+    print(w)
     pass
