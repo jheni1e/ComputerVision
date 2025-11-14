@@ -21,8 +21,10 @@ for i in range(epochs):
     y = sigmoid(s)
 
     dEdW = (y - t) * y * (1 - y) * x
+    dEdb = (y - t) * y * (1 - y)
 
     w = w - lr * dEdW
+    b = b - lr * dEdb
 
     print(w)
     pass
