@@ -13,7 +13,7 @@ x = 1.6
 w = rd.random()
 b = rd.random()
 
-learning_rate = 0.2
+lr = 0.2
 epochs = 100
 
 for i in range(epochs):
@@ -22,7 +22,7 @@ for i in range(epochs):
 
     dEdW = (y - t) * y * (1 - y) * x
 
-    w = w - learning_rate * dEdW
+    w = w - lr * dEdW
 
     print(w)
     pass
