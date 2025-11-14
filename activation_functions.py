@@ -17,9 +17,6 @@ lr = 0.2
 epochs = 1000
 
 for i in range(epochs):
-    dEdb = (y - t) * y * (1 - y)
-    b = b - lr * dEdb
-    
     for j in range(len(x)):
         s = S(x[j], w[j], b)
         
@@ -30,4 +27,7 @@ for i in range(epochs):
         w[j] = w[j] - lr * dEdW
 
         print(sigmoid(S(x[j], w[j], b)))
+        
+    dEdb = (y - t) * y * (1 - y)
+    b = b - lr * dEdb
     pass
