@@ -17,16 +17,13 @@ lr = 0.2
 epochs = 1000
 
 for i in range(epochs):
+    s = S(x, w, b)
+    y = sigmoid(s)
+
     for j in range(len(x)):
-        s = S(x, w, b)
-        
-        y = sigmoid(s)
-
         dEdW = (y - t) * y * (1 - y) * x[j]
-
         w[j] = w[j] - lr * dEdW
 
-        
     dEdb = (y - t) * y * (1 - y)
     b = b - lr * dEdb
     print(sigmoid(S(x, w, b)))
