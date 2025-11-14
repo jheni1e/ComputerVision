@@ -9,22 +9,24 @@ def sigmoid(S):
 
 t = 1.00
 
-x = 1.6
-w = rd.random()
+x = [2.0, 4.1, 0.3, 1.6, 2.3]
+w = [rd.random() for i in range(5)]
 b = rd.random()
 
 lr = 0.2
 epochs = 1000
 
 for i in range(epochs):
-    s = S(x, w, b)
-    y = sigmoid(s)
+    for i in range(len(x)):
+        s = S(x[i], w[i], b)
+        
+        y = sigmoid(s)
 
-    dEdW = (y - t) * y * (1 - y) * x
-    dEdb = (y - t) * y * (1 - y)
+        dEdW = (y - t) * y * (1 - y) * x[i]
+        dEdb = (y - t) * y * (1 - y)
 
-    w = w - lr * dEdW
-    b = b - lr * dEdb
+        w[i] = w[i] - lr * dEdW
+        b = b - lr * dEdb
 
-    print(sigmoid(S(x, w, b)))
+        print(sigmoid(S(x[i], w[i], b)))
     pass
