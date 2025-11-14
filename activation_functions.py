@@ -9,9 +9,11 @@ def sigmoid(S):
 
 t = 1.00
 
+x = 1.6
 w = rd.random()
 b = rd.random()
 
 epochs = 100
 for i in range(epochs):
+    print(sigmoid(S(x, w, b)))
     pass
