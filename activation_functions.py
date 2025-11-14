@@ -13,7 +13,7 @@ x = 1.6
 w = rd.random()
 b = rd.random()
 
-learning_rate = 0.19
+learning_rate = 0.2
 epochs = 100
 
 for i in range(epochs):
