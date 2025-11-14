@@ -14,7 +14,7 @@ w = rd.random()
 b = rd.random()
 
 lr = 0.2
-epochs = 100
+epochs = 1000
 
 for i in range(epochs):
     s = S(x, w, b)
@@ -26,5 +26,5 @@ for i in range(epochs):
     w = w - lr * dEdW
     b = b - lr * dEdb
 
-    print(w)
+    print(sigmoid(S(x, w, b)))
     pass
