@@ -2,7 +2,7 @@ import math as m
 import random as rd
 
 def S(x, w, b):
-    return (x * w) + b
+    return sum(x[i] * w[i] for i in range(len(x))) + b
 
 def sigmoid(S):
     return 1 / (1 + m.exp(-S))
@@ -18,7 +18,7 @@ epochs = 1000
 
 for i in range(epochs):
     for j in range(len(x)):
-        s = S(x[j], w[j], b)
+        s = S(x, w, b)
         
         y = sigmoid(s)
 
@@ -26,8 +26,7 @@ for i in range(epochs):
 
         w[j] = w[j] - lr * dEdW
 
-        print(sigmoid(S(x[j], w[j], b)))
         
     dEdb = (y - t) * y * (1 - y)
     b = b - lr * dEdb
-    pass
+    print(sigmoid(S(x, w, b)))
