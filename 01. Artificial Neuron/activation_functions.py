@@ -26,4 +26,4 @@ for i in range(epochs):
 
     dEdb = (y - t) * y * (1 - y)
     b = b - lr * dEdb
-    print(sigmoid(S(x, w, b)))
+    print(sigmoid(S(x, w, b)))  
