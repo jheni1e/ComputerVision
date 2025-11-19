@@ -37,15 +37,4 @@ def filter_function(image: List[List[int]], kernel: List[List[int]]):
 
 K = Kernel("minion.png", filter_function)
 
-rows = len(K.kernel_string_vars)
-cols = len(K.kernel_string_vars[0])
-center_r, center_c = rows // 2, cols // 2
-
-for i in range(rows):
-    for j in range(cols):
-        if i == center_r and j == center_c:
-            K.kernel_string_vars[i][j].set("1")
-        else:
-            K.kernel_string_vars[i][j].set("0")
-
 init()
