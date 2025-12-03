@@ -1,27 +1,20 @@
 from typing import List
 from Kernel import Kernel, init
 
-def safe(image, i, j):
-    if 0 <= i < image.shape[0] and 0 <= j < image.shape[1]:
-        return image[i][j]
-    return 0
-
 def filter_function(image: List[List[int]], kernel: List[List[int]]):
     filt = image.copy()
 
     for i in range(image.shape[0]):
         for j in range(image.shape[1]):
-            newimage = 0
-            total = 0
+            newimage = 0 #soma dos valores do kernel (equivalente a normalização)
+            total = 0 #soma das multiplicações pixel × kernel
 
             for k in range(len(kernel)):
                 for l in range (len(kernel[k])):
-                    if i+k >= len(image) or j+l >= len(image[0]):  #
+                    if i+k >= len(image) or j+l >= len(image[0]): #checa se está nos limites da imagem
                         continue
-                    total += (image[i+k][j+l] * kernel[k][l])
-                    newimage += (kernel[k][l])  
-            if newimage != 0:
-                total = total / newimage
+                    total += (image[i+k][j+l] * kernel[k][l]) #soma o produto entre pixel e peso do kernel
+                    newimage += (kernel[k][l]) #soma apenas os pesos do kernel (normalização)
 
             ksum = sum(sum(k) for k in kernel)
             if ksum == 0:
