@@ -16,6 +16,7 @@ images = [
 model = load_model('model.keras')
 
 count = 0
+errors = 0
 
 for image in images:
     try:
@@ -33,7 +34,9 @@ for image in images:
         print('Predict: ', predict_value, 'Real: ', real_value, '\t-> ', predict_value == real_value)
         if (predict_value == real_value):
             count += 1
+        if (predict_value != real_value):
+            errors += 1
     except UnidentifiedImageError:
         continue;
 
-print(f"Acertos: {count}")
+print(f"Acertos: {count} | Erros: {errors}")
